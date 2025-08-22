@@ -1,6 +1,6 @@
 ﻿namespace WebApiPaulo.Models
 {
-    public class Cliente
+    public class ClienteModel
     {
         public int IdCliente { get; set; }
         public string? Nome { get; set; }
