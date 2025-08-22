@@ -9,7 +9,7 @@
 
     public class PedidoItem
     {
-        public int IdPedidoItem { get; set; }
-        public int IdProduto { get; set; }
+        public int? IdPedidoItem { get; set; }
+        public int? IdProduto { get; set; }
     }
 }
