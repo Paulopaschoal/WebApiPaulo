@@ -42,7 +42,8 @@ namespace WebApiPaulo.Repositorios
             }
 
             PedidoPorId.IdCliente = pedido.IdCliente;
-            PedidoPorId.IdPedidoItem.IdProduto = pedido.IdPedidoItem.IdProduto;
+           // PedidoPorId.IdPedidoItem.IdProduto = pedido.IdPedidoItem.IdProduto;
+            PedidoPorId.IdProduto = pedido.IdProduto;
 
             _DBContext.Pedido.Update(PedidoPorId);
             await _DBContext.SaveChangesAsync();

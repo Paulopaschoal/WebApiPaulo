@@ -4,7 +4,9 @@
     {
         public int IdPedido { get; set; }
         public int IdCliente { get; set; }
-        public PedidoItem? IdPedidoItem { get; set; }
+
+        public int? IdProduto { get; set; }
+        //public PedidoItem? IdPedidoItem { get; set; }
     }
 
     public class PedidoItem
