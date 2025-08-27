@@ -1,7 +1,12 @@
-﻿namespace WebApiPaulo.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WebApiPaulo.Models
 {
+    [Table("Pedido")]
     public class PedidoModel
     {
+        [Key]
         public int IdPedido { get; set; }
         public int IdCliente { get; set; }
 

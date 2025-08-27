@@ -8,12 +8,13 @@ namespace WebApiPaulo.Repositorios
     public class ClienteRepositorio : IClienteRepositorio
     {
         private readonly SistemaVendasDBContext _DBContext;
-        public ClienteRepositorio(SistemaVendasDBContext sistemaVendasDBContext)
+        public ClienteRepositorio(SistemaVendasDBContext context)
         {
 
-            _DBContext = sistemaVendasDBContext;
+            _DBContext = context;
             // Aqui você pode inicializar o contexto do banco de dados ou qualquer outra configuração necessária.
         }
+ 
         public async Task<ClienteModel> AdicionarCliente(ClienteModel cliente)
         {
             _DBContext.Cliente.Add(cliente);
@@ -52,7 +53,12 @@ namespace WebApiPaulo.Repositorios
 
         public async Task<ClienteModel> ObterClientePorId(int id)
         {
-            return await _DBContext.Cliente.FirstOrDefaultAsync(c => c.IdCliente == id);
+            var cliente = await _DBContext.Cliente.FirstOrDefaultAsync(c => c.IdCliente == id);
+            if (cliente == null)
+            {
+                throw new Exception($"Cliente para o ID: {id} não foi encontrado no banco de dados.");
+            }
+            return cliente;
         }
 
         public async Task<List<ClienteModel>> ObterTodosClientes()
